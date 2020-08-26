@@ -143,7 +143,8 @@
           "options": {
             "main": "projects/br-inputs/src/test.ts",
             "tsConfig": "projects/br-inputs/tsconfig.spec.json",
-            "karmaConfig": "projects/br-inputs/karma.conf.js"
+            "karmaConfig": "projects/br-inputs/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {

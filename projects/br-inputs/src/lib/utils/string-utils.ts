@@ -1,7 +1,15 @@
 export class StringUtils {
+  /**
+   * @function removeCaracteresEspeciais
+   * Remove caracteres especiais sem contar com os acentuados
+   *
+   * @param value
+   *  valor a ser convertido
+   */
   public static removeCaracteresEspeciais(value: string): any {
     return value.replace(/[^\wèéòàùì\s]/gi, '');
   }
+
   /**
    * @function adicionaZerosAEsquerda
    * adiciona zeros a esquerda de caracteres até chegar ao tamanho
@@ -46,8 +54,9 @@ export class StringUtils {
     valor: string | number,
     objPosicoesCaracteres: { posicao: number, caracter: string }[]
   ): string {
-    valor = valor ? valor.toString() : '0';
+    valor = valor ? valor.toString() : '';
     let index = 0;
+    objPosicoesCaracteres = objPosicoesCaracteres.sort((a, b) => a.posicao - b.posicao);
     for (const { posicao, caracter } of objPosicoesCaracteres) {
       valor = `${valor.substring(0, index + posicao)}${caracter}${valor.substring(index + posicao)}`;
       index++;
