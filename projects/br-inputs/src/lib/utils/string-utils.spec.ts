@@ -69,7 +69,7 @@ describe('StringUtils', () => {
   });
 
   it('adicionaCaracteresPorPosicao aceita valor nulo, e vai preencher o valor com os caracteres do array', () => {
-    expect(StringUtils.adicionaCaracteresPorPosicao('abc',
+    expect(StringUtils.adicionaCaracteresPorPosicao(null,
     [{ posicao: 1, caracter: '1' }, { posicao: 2, caracter: '2' }, { posicao: 0, caracter: '0' }]))
       .toBe('012');
   });
