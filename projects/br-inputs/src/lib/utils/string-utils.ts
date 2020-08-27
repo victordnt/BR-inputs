@@ -6,8 +6,19 @@ export class StringUtils {
    * @param value
    *  valor a ser convertido
    */
-  public static removeCaracteresEspeciais(value: string): any {
+  public static removeCaracteresEspeciais(value: string): string {
     return value.replace(/[^\wèéòàùì\s]/gi, '');
+  }
+
+  /**
+   * @function removeCaracteresNaoNumericos
+   * Remove caracteres não númericos sem contar com os acentuados
+   *
+   * @param value
+   *  valor a ser convertido
+   */
+  public static removeCaracteresNaoNumericos(value: string): string {
+    return value.replace(/\D/g, '');
   }
 
   /**

@@ -23,10 +23,10 @@ const CARACTERES_CNPJ = [
 })
 export class CpfCnpjPipe implements PipeTransform {
 
-  transform(value: string | number): string {
+  transform(value: string | number, args?: string[]): string {
     let tamanho = TAMANHO_CPF;
     let caracteres = CARACTERES_CPF;
-    value = value.toString();
+    value = StringUtils.removeCaracteresNaoNumericos(value.toString());
     if (value.length > TAMANHO_CPF) {
       tamanho = TAMANHO_CNPJ;
       caracteres = CARACTERES_CNPJ;

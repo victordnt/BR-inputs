@@ -6,9 +6,9 @@ describe('StringUtils', () => {
       .toBeTruthy();
   });
 
-/**
- *  @function adicionaZerosAEsquerda
- */
+  /**
+   *  @function adicionaZerosAEsquerda
+   */
   it('adicionaZerosAEsquerda pode receber valores numéricos para a conversão', () => {
     expect(StringUtils.adicionaZerosAEsquerda(123, 5))
       .toBe('00123');
@@ -34,17 +34,25 @@ describe('StringUtils', () => {
       .toBe('00abc');
   });
 
-/**
- *  @function removeCaracteresEspeciais
- */
+  /**
+   *  @function removeCaracteresEspeciais
+   */
   it('removeCaracteresEspeciais tira os caracteres especiais, sem contar com acentos.', () => {
     expect(StringUtils.removeCaracteresEspeciais('/?v°®ŧ←↓→øþ´ªiº~ĸł´̉ħ̉ŋđtðßæuº«»©“V”µ─·̣̣ạI¹²³£¢¬T{[]}!@#U$%¨1&2*(3)'))
       .toBe('vituVITU123');
   });
 
-/**
- *  @function adicionaCaracteresPorPosicao
- */
+  /**
+   *  @function removeCaracteresNaoNumericos
+   */
+  it('removeCaracteresEspeciais tira os caracteres especiais, sem contar com acentos.', () => {
+    expect(StringUtils.removeCaracteresNaoNumericos('/?v°®ŧ←↓→øþ´ªiº~ĸł´̉ħ̉ŋđtðßæuº«»©“V”µ─·̣̣ạI¹²³£¢¬T{[]}!@#U$%¨1&2*(3)'))
+      .toBe('123');
+  });
+
+  /**
+   *  @function adicionaCaracteresPorPosicao
+   */
   it('adicionaCaracteresPorPosicao deve adicionar caracteres nas posições indicadas', () => {
     expect(StringUtils.adicionaCaracteresPorPosicao('01234567890',
       [{ posicao: 3, caracter: '.' }, { posicao: 6, caracter: '.' }, { posicao: 9, caracter: '-' }]))
@@ -70,7 +78,7 @@ describe('StringUtils', () => {
 
   it('adicionaCaracteresPorPosicao aceita valor nulo, e vai preencher o valor com os caracteres do array', () => {
     expect(StringUtils.adicionaCaracteresPorPosicao(null,
-    [{ posicao: 1, caracter: '1' }, { posicao: 2, caracter: '2' }, { posicao: 0, caracter: '0' }]))
+      [{ posicao: 1, caracter: '1' }, { posicao: 2, caracter: '2' }, { posicao: 0, caracter: '0' }]))
       .toBe('012');
   });
 
